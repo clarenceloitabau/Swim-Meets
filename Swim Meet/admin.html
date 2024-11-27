@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Admin</title>
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="Index.html">Home</a></li>
+        </ul>
+    </nav>
+
+    <div>
+        <div class="container">
+            <form id="meetForm">
+                <input type="text" id="meetName" placeholder="Meet Name" required>
+                <input type="text" id="date" placeholder="Date" required>
+                <input type="text" id="poolName" placeholder="Swimming Pool Name" required>
+                <input type="text" id="numEvents" placeholder="Number of Events" required>
+                <input type="text" id="location" placeholder="Location" required>
+                <input type="text" id="registration" placeholder="Registration Link" required>
+                <h2 style="color: black; margin-top: 10px; font-size: small;">For Regisration link, enter link to your google forms</h2>
+                <button type="submit">ADD MEET</button>
+            </form>
+        </div>
+    
+        <div id="meetsList">
+            <h2>Posted Meets</h2>
+            <div id="meetsContainer"></div>
+            <div id="successMessage" style="display: none; color: green; margin-top: 10px;">Meet successfully deleted!</div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Swim Meet. All rights reserved.</p>
+    </footer>
+</body>
+</html>

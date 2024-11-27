@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>User</title>
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+        </ul>
+    </nav>
+    <div id="meetDetail">
+    <h1>Meet Details</h1>
+    <div id="detailsContainer" class="card-container"></div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Retrieve meets from localStorage
+            const meets = JSON.parse(localStorage.getItem("meets")) || [];
+    
+            const detailsContainer = document.getElementById("detailsContainer");
+    
+            // Check if there are any meets to display
+            if (meets.length > 0) {
+                meets.forEach((meet) => {
+                    // Create a card for each meet
+                    const card = document.createElement("div");
+                    card.classList.add("card");
+                    card.innerHTML = `
+                        <h2>${meet.meetName}</h2>
+                        <p><strong>Date:</strong> ${meet.date}</p>
+                        <p><strong>Swimming Pool Name:</strong> ${meet.poolName}</p>
+                        <p><strong>Number of Events:</strong> ${meet.numEvents}</p>
+                        <p><strong>Location:</strong> ${meet.location}</p>
+                        <p><a href="${meet.registration}">Register</a></p>
+                    `;
+                    detailsContainer.appendChild(card);
+                });
+            } else {
+                // Display a message if no meets are available
+                detailsContainer.innerHTML = `<p style="color: red;">No meets have been added yet.</p>`;
+            }
+        });
+    </script>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024  Swim Meet. All rights reserved.</p>
+    </footer>
+</body>
+</html>
